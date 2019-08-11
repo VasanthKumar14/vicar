@@ -1,0 +1,511 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (min-width: 112.5em) {
+    html {
+        font-size: 75%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0rem 0rem 0rem 0rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+    body {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: #55c57a;
+    color: #fff;
+}
+
+body {
+    /*font-size: 16px;*/
+    line-height: 1.7;
+}
+
+.heading-primary {
+    color: white;
+    backface-visibility: hidden;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.heading-primary--main {
+    font-family: "Josefin Slab";
+    font-weight: 900;
+    letter-spacing: 1rem;
+    font-size: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+    /*
+        animation-delay: 3s;
+        animation-iteration-count: 3;
+        */
+}
+
+@media only screen and (max-width: 37.5em) {
+    .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .heading-primary--main {
+        letter-spacing: 0rem;
+        font-size: 3rem;
+    }
+}
+
+.heading-primary--sub {
+    /* font-family: "Aclonica"; */
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .6rem;
+    animation: moveInRight 1s ease-out;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .heading-primary--sub {
+        letter-spacing: 0rem;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .heading-primary--sub {
+        letter-spacing: 0rem;
+        font-size: 1rem;
+    }
+}
+
+
+.header {
+    height: 25vh;
+    background-image: url(../img/plantsbgcropped.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+only screen and (min-width: 125em) {
+    .header {
+        background-image: url(../img/plantsbgcropped.jpg);
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .header {
+        height: 25vh;
+    }
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 0.5rem;
+    left: 2rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .header__logo-box {
+        top: 4rem;
+        left: 1rem;
+    }
+}
+
+.header__logo {
+    height: 13rem;
+    width: 13rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .header__logo {
+        height: 6rem;
+        width: 6rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .header__logo {
+        height: 6rem;
+        width: 6rem;
+    }
+}
+
+.icar__logo-box {
+    margin-top: 1.5rem;
+    margin-right: 3rem;
+    float: right;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .icar__logo-box {
+        margin-top: 4rem;
+        margin-right: 3rem;
+    }
+}
+
+.icar__logo {
+    height: 13rem;
+    width: 13rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .icar__logo {
+        height: 5rem;
+        width: 5rem;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .icar__logo {
+        height: 5rem;
+        width: 5rem;
+    }
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.section-nav {
+    background-image: linear-gradient(to right top, #52ce3d, #28b485);
+    font-family: 'Aldrich';
+    margin-top: 0rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .section-nav {
+        padding: 1rem 0;
+
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .section-nav {
+        padding: 2rem 0;
+    }
+}
+
+.section-nav * {
+    /* margin-top: .3rem; */
+    padding: 0;
+    list-style-type: none;
+    font-size: 1rem;
+}
+
+.section-nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-nav li {
+    margin-left:0.7rem;
+    text-align: center;
+    padding: 2rem 3rem 1.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000;
+    margin-top: 0rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .section-nav li {
+        margin-left:0.35rem;
+        padding: 1rem 1rem 1rem;
+    }
+}
+
+.section-nav li:hover {
+    background-color: green;
+    color: white;
+    animation: spring 300ms ease-out;
+    text-shadow: 0 -1px 0 green;
+    font-weight: bold;
+}
+
+.section-nav li:active {
+    transform: translateY(4px);
+}
+
+@keyframes spring {
+    15% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: scale(1.2, 1.1);
+    }
+    40% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: scale(0.95, 0.95);
+    }`
+    75% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: scale(1.05, 1);
+    }
+    100% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+.section-nav .shameless-plug {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding: 8px 20px;
+    text-decoration: none;
+}
+
+a
+{
+  text-decoration: none;
+  color: black;
+  font-family: 'Aldrich';
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: white}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 3.0rem;
+  height: 2.7rem;
+  position: absolute;
+   top: -7px;
+  left: -5px;
+  
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: black;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+@media only screen and (max-width: 37.5em) {
+    #menuToggle span
+    {
+      display: block;
+      width: 2rem;
+      height: 0.2rem;   
+      margin-top: 0.8rem;
+      margin-bottom: 0.2rem;
+      position: relative;
+      
+      background: black;
+      border-radius: 0.2rem;
+      
+      z-index: 1;
+      
+      transform-origin: -0.895rem 0.865rem;
+      
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  opacity 0.55s ease;
+    }}
+
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -40px 0 0 -50px;
+  padding: 50px;
+  padding-top: 50px;
+  
+  background: #55c57a;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+  margin-top:-4rem;
+}
+
+
