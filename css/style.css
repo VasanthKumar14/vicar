@@ -186,6 +186,54 @@ only screen and (min-width: 125em) {
     }
 }
 
+.table_response {
+    /* height: 25vh; */
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+only screen and (min-width: 125em) , only screen and (max-width: 127.5em) {
+    .table_response {
+        font-size: 15px;
+
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .table_response {
+        /* height: 25vh; */
+        font-size: 10px;
+        width:100%;
+    }
+}
+@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+only screen and (min-width: 125em) , only screen and (max-width: 127.5em) {
+    .table_response {
+        font-size: 15px;
+
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .table_response {
+        /* height: 25vh; */
+        font-size: 7px;
+        width:100%;
+    }
+}
+@media only screen and (max-width: 57.5em) {
+    .table_response {
+        /* height: 25vh; */
+        font-size: 4px;
+        width:100%;
+    }
+}
+
+
 .header__logo-box {
     position: absolute;
     top: 0.5rem;
